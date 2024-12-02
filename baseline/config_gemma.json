@@ -1,0 +1,9 @@
+{
+    "bbh_dir": "../data/BIG-Bench-Hard/cot-prompts/",
+    "flan_file": "../data/flan/v2/cot_data/aqua_train.tsv",
+    "output_dir": "../data/output/",
+    "BBH_MAX_TOKEN_LENGTH": 500,
+    "FLAN_MAX_NEW_TOKENS": 500,
+    "MAX_EXAMPLES": 10,
+    "model_name": "google/gemma-2-2b"
+}
