@@ -13,13 +13,15 @@ This project builds upon [Bhatt et al. (2024)](https://arxiv.org/abs/2401.06692v
 
 2) Create a conda environment for the experiments
 ```
-conda create --name cs329h-project --file requirements.txt python=3.9
+conda create --name cs329h-project --file requirements.txt python=3.9 -c conda-forge
 ```
 
-If you run into issues with torch install, use the official pytorch Conda channel to install torch:
+If you run into issues with installing ray and torch, use the official pytorch Conda channel or install manually after creating the env:
 ```
-conda install pytorch torchvision torchaudio -c pytorch
 conda activate cs329h-project
+conda install pytorch torchvision torchaudio -c pytorch
+pip3 install ray
+
 ```
 
 After installing PyTorch, install the remaining dependencies from your requirements.txt (This will install transformers and huggingface_hub):
@@ -34,5 +36,10 @@ conda activate cs329h-project
 
 4) Run eval.py with a selected model and chain-of-thought data prompt flag. The results will be written to a file with the matching prefix and _model_name postfix.
 ```
-python3 eval.py --config config_gemma.json --mode bbh
+python3 eval.py --config config_gemma.json --data bbh
+```
+
+5) To run the unittests run in the baseline directory
+```
+pytest test_eval.py
 ```
