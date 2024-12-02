@@ -8,28 +8,29 @@ class TestConfigUtils(unittest.TestCase):
 
     def setUp(self):
         self.valid_config = {
-            "bbh_dir": "./data/bbh/",
-            "flan_file": "./data/flan/flan.tsv",
+            "bbh_dir": "../data/BIG-Bench-Hard/cot-prompts/",
+            "flan_file": "../data/flan/v2/cot_data/aqua_train.tsv",
+            "output_dir": "../data/output/",
             "BBH_MAX_TOKEN_LENGTH": 500,
-            "FLAN_MAX_NEW_TOKENS": 50,
-            "MAX_EXAMPLES": 10,
-            "model_name": "meta-llama/Meta-Llama-3-8B"
+            "FLAN_MAX_NEW_TOKENS": 500,
+            "MAX_EXAMPLES": 1,
+            "model_name": "google/gemma-2-2b"
         }
         self.invalid_config_missing_key = {
             "bbh_dir": "./data/bbh/",
-            "BBH_MAX_TOKEN_LENGTH": 500
+            "output_dir": "",
         }
         self.invalid_config_wrong_value = {
             "bbh_dir": "./data/bbh/",
             "flan_file": "./data/flan/flan.tsv",
-            "BBH_MAX_TOKEN_LENGTH": -500,
-            "FLAN_MAX_NEW_TOKENS": 50,
-            "MAX_EXAMPLES": 10,
-            "model_name": "meta-llama/Meta-Llama-3-8B"
+            "BBH_MAX_TOKEN_LENGTH": 0,
+            "FLAN_MAX_NEW_TOKENS": 0,
+            "MAX_EXAMPLES": 0,
+            "model_name": ""
         }
 
     def test_load_config_valid(self):
-        config = load_config("./test_config.json")
+        config = load_config("./config_test.json")
         self.assertIsInstance(config, dict)
 
     def test_validate_config_valid(self):
@@ -50,7 +51,7 @@ class TestConfigUtils(unittest.TestCase):
 class TestModelUtils(unittest.TestCase):
 
     def setUp(self):
-        self.model_name = "gpt2"
+        self.model_name = "google/gemma-2-2b"
         self.tokenizer, self.model = load_model_and_tokenizer(self.model_name)
 
     def test_load_model_and_tokenizer(self):
