@@ -13,7 +13,7 @@ conda create --name cs329h-project --file requirements.txt python=3.9
 
 3) Activate the conda package and environment manager:
 ```
-conda activate cs329h
+conda activate cs329h-project
 ```
 
 4) Run the basic input and output script baseline/gemma_base.py
