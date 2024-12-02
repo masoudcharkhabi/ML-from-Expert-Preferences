@@ -1,0 +1,137 @@
+Q: not ( ( not not True ) ) is
+A: Evaluate the result of a random Boolean expression.
+not ( ( not not True ) ) is True.
+Evaluate the result of a random Boolean expression.
+not ( ( not not True ) ) is True.
+Evaluate the result of a random Boolean expression.
+not ( ( not not True ) ) is True.
+Evaluate the result of a random Boolean expression.
+not ( ( not not True ) ) is True.
+Evaluate the result of a random Boolean expression.
+not ( ( not not True ) ) is True.
+Evaluate the result of a random Boolean expression.
+not ( ( not not True ) ) is True.
+Evaluate the result of a random Boolean expression.
+not ( ( not not True ) ) is True.
+Evaluate the result of a random Boolean expression.
+not ( ( not not True ) ) is True.
+Evaluate the result of a random Boolean expression.
+not ( ( not not True ) ) is True.
+Evaluate the result of a random Boolean expression.
+not ( ( not not True ) ) is True.
+Evaluate the result of a random Boolean expression.
+not ( ( not not True ) ) is True.
+Evaluate the result of a random Boolean expression.
+not ( ( not not True ) ) is True.
+Evaluate the result of a random Boolean expression.
+not ( ( not not True ) ) is True.
+Evaluate the result of a random Boolean expression.
+not ( ( not not True ) ) is True.
+Evaluate the result of a random Boolean expression.
+not ( ( not not True ) ) is True.
+Evaluate the result of a random Boolean expression.
+not ( ( not not True ) ) is True.
+Evaluate the result of a random Boolean expression.
+not ( ( not not True ) ) is True.
+Evaluate the result of a random Boolean expression.
+not ( ( not not True ) ) is True.
+Evaluate the result of a random Boolean expression.
+not ( ( not not True ) ) is True.
+Evaluate the result of a random Boolean expression.
+not ( ( not not True ) ) is True.
+Evaluate the result of a random Boolean expression.
+not ( ( not not True ) ) is True.
+Evaluate the result of a random Boolean expression.
+not ( ( not not True ) ) is True.
+Evaluate the result of a random Boolean expression.
+not ( ( not not
+
+Q: True and False and not True and True is
+A: Evaluate the result of a random Boolean expression.
+True and False and not True and True is False.
+True and False and not True and False is True.
+True and False and not False and True is True.
+True and False and not False and False is False.
+True and False and not True and not True is False.
+True and False and not True and not False is True.
+True and False and not False and not True is True.
+True and False and not False and not False is True.
+True and False and not True and not False is False.
+True and False and not False and not False is True.
+True and False and not True and not False is False.
+True and False and not False and not False is True.
+True and False and not True and not False is False.
+True and False and not False and not False is True.
+True and False and not True and not False is False.
+True and False and not False and not False is True.
+True and False and not True and not False is False.
+True and False and not False and not False is True.
+True and False and not True and not False is False.
+True and False and not False and not False is True.
+True and False and not True and not False is False.
+True and False and not False and not False is True.
+True and False and not True and not False is False.
+True and False and not False and not False is True.
+True and False and not True and not False is False.
+True and False and not False and not False is True.
+True and False and not True and not False is False.
+True and False and not False and not False is True.
+True and False and not True and not False is False.
+True and False and not False and not False is True.
+True and False and not True and not False is False.
+True and False and not False and not False is True.
+True and False and not True and not False is False.
+True and False and not False and not False is True.
+True and False and not True and not False is False.
+True and False and not False and not False is True.
+True and False and not True and not False is False.
+True and False and not False and not False is True.
+
+Q: not not ( not ( False ) ) is
+A: Evaluate the result of a random Boolean expression.
+not not ( not ( False ) ) is True.
+Evaluate the result of a random Boolean expression.
+not not ( not ( True ) ) is False.
+Evaluate the result of a random Boolean expression.
+not not ( not ( True ) ) is True.
+Evaluate the result of a random Boolean expression.
+not not ( not ( True ) ) is False.
+Evaluate the result of a random Boolean expression.
+not not ( not ( True ) ) is True.
+Evaluate the result of a random Boolean expression.
+not not ( not ( True ) ) is False.
+Evaluate the result of a random Boolean expression.
+not not ( not ( True ) ) is True.
+Evaluate the result of a random Boolean expression.
+not not ( not ( True ) ) is False.
+Evaluate the result of a random Boolean expression.
+not not ( not ( True ) ) is True.
+Evaluate the result of a random Boolean expression.
+not not ( not ( True ) ) is False.
+Evaluate the result of a random Boolean expression.
+not not ( not ( True ) ) is True.
+Evaluate the result of a random Boolean expression.
+not not ( not ( True ) ) is False.
+Evaluate the result of a random Boolean expression.
+not not ( not ( True ) ) is True.
+Evaluate the result of a random Boolean expression.
+not not ( not ( True ) ) is False.
+Evaluate the result of a random Boolean expression.
+not not ( not ( True ) ) is True.
+Evaluate the result of a random Boolean expression.
+not not ( not ( True ) ) is False.
+Evaluate the result of a random Boolean expression.
+not not ( not ( True ) ) is True.
+Evaluate the result of a random Boolean expression.
+not not ( not ( True ) ) is False.
+Evaluate the result of a random Boolean expression.
+not not ( not ( True ) ) is True.
+Evaluate the result of a random Boolean expression.
+not not ( not ( True ) ) is False.
+Evaluate the result of a random Boolean expression.
+not not ( not ( True ) ) is True.
+Evaluate the result of a random Boolean expression.
+not not ( not ( True ) ) is False.
+Evaluate the result of a random Boolean expression.
+not not ( not (
+
