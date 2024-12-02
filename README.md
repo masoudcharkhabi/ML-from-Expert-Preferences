@@ -23,10 +23,9 @@ Install PyTorch
 conda install pytorch torchvision torchaudio -c pytorch
 ```
 
-After installing PyTorch, install the remaining dependencies from your requirements.txt:
+After installing PyTorch, install the remaining dependencies from your requirements.txt (This will install transformers and huggingface_hub):
 ```
-pip install -r requirements.txt
-This will install transformers and huggingface_hub.
+pip3 install -r requirements.txt
 ```
 
 3) Activate the conda package and environment manager:
@@ -38,3 +37,5 @@ conda activate cs329h-project
 ```
 python3 gemma_base.py
 ```
+
+5) The results of gemma will be written to a .txt file with the matching prefix and _gemma postfix.
