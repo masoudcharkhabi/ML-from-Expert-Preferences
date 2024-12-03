@@ -11,13 +11,20 @@ from model_utils import load_model_and_tokenizer
 logging.basicConfig(level=logging.INFO)
 
 # Handle interrupt gracefully
-def handle_interrupt(signal, frame):
+def handle_interrupt(signal: int, frame) -> None:
+    """
+    Handle keyboard interrupt (CTRL+C) gracefully.
+
+    Args:
+        signal (int): Signal number.
+        frame: Current stack frame.
+    """
     logging.warning("Interrupt received! Shutting down gracefully...")
     exit(0)
 
 signal.signal(signal.SIGINT, handle_interrupt)
 
-def ensure_directory_exists(directory: str, description: str):
+def ensure_directory_exists(directory: str, description: str) -> None:
     """
     Ensure that a required directory exists.
 
@@ -29,8 +36,18 @@ def ensure_directory_exists(directory: str, description: str):
         logging.error(f"{description} directory {directory} does not exist.")
         exit(1)
 
-def prepare_dataset(data_files, tokenizer, max_length):
-    """Prepare dataset from given files."""
+def prepare_dataset(data_files: list, tokenizer, max_length: int):
+    """
+    Prepare dataset from given files by tokenizing the text.
+
+    Args:
+        data_files (list): List of file paths to prepare the dataset from.
+        tokenizer: Tokenizer instance to tokenize the dataset.
+        max_length (int): Maximum length for tokenized sequences.
+
+    Returns:
+        Dataset: Tokenized dataset.
+    """
     def tokenize_function(examples):
         return tokenizer(examples["text"], padding="max_length", truncation=True, max_length=max_length)
     
@@ -38,7 +55,10 @@ def prepare_dataset(data_files, tokenizer, max_length):
     tokenized_dataset = dataset.map(tokenize_function, batched=True)
     return tokenized_dataset
 
-def main():
+def main() -> None:
+    """
+    Main function to fine-tune a language model using specified parameters from a configuration file.
+    """
     parser = argparse.ArgumentParser(description="Fine-tune a language model using specified parameters.")
     parser.add_argument(
         "--config",
