@@ -34,12 +34,17 @@ pip3 install -r requirements.txt
 conda activate cs329h-project
 ```
 
-4) Run eval.py with a selected model and chain-of-thought data prompt flag. The results will be written to a file with the matching prefix and _model_name postfix.
+4) Run inference.py with a selected model and chain-of-thought data prompt flag. The results will be written to a file with the matching prefix and _model_name postfix.
 ```
-python3 eval.py --config config_gemma.json --data bbh
+python3 inference.py --config config_gemma.json --data bbh
 ```
 
-5) To run the unittests run in the baseline directory
+5) Run eval_metrics.py to compare generated output in data/output to ground truth
+```
+python3 eval_metrics.py --output_dir data/output --ground_truth_dirs data/BIG-Bench-Hard/cot-prompts data/flan/v2/cot_data
+```
+
+6) To run the unittests run in the baseline directory
 ```
 pytest test_eval.py
 ```
