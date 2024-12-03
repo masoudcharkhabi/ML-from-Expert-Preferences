@@ -53,6 +53,7 @@ def prepare_dataset(data_files: list, tokenizer, max_length: int):
     
     dataset = load_dataset("text", data_files={"train": data_files})
     tokenized_dataset = dataset.map(tokenize_function, batched=True)
+    tokenized_dataset = tokenized_dataset.rename_column("text", "labels")  # Rename to "labels" for training compatibility
     return tokenized_dataset
 
 def main() -> None:
@@ -73,7 +74,7 @@ def main() -> None:
 
     # Ensure output directory exists
     output_dir = config.get("output_dir", "./output")
-    ensure_directory_exists(output_dir, "Output")
+    os.makedirs(output_dir, exist_ok=True)
 
     # Load model and tokenizer
     try:
@@ -108,7 +109,10 @@ def main() -> None:
         save_steps=10,
         save_total_limit=2,
         logging_dir="./logs",
-        report_to="none"  # Disable reporting to WandB by default
+        report_to="none",  # Disable reporting to WandB by default
+        logging_strategy="steps",
+        logging_steps=10,
+        evaluation_strategy="no",  # Disable evaluation during training by default
     )
 
     # Trainer
@@ -122,10 +126,11 @@ def main() -> None:
     logging.info("Starting training...")
     try:
         trainer.train()
+        trainer.save_model(output_dir)  # Save the fine-tuned model
     except Exception as e:
         logging.error(f"Error during training: {str(e)}")
         exit(1)
-    logging.info("Training complete.")
+    logging.info("Training complete. Model saved to output directory.")
 
 if __name__ == "__main__":
     main()
