@@ -4,6 +4,9 @@
     "output_dir": "../data/output/",
     "BBH_MAX_TOKEN_LENGTH": 500,
     "FLAN_MAX_NEW_TOKENS": 500,
-    "MAX_EXAMPLES": 10,
-    "model_name": "google/gemma-2-2b"
+    "MAX_EXAMPLES": 4,
+    "model_name": "meta-llama/Meta-Llama-3-8B",
+    "num_iterations": 1,
+    "batch_size": 4,
+    "device": "cpu"
 }
