@@ -6,7 +6,7 @@ from transformers import AutoModelForCausalLM, AutoTokenizer, Trainer, TrainingA
 from datasets import load_dataset
 import torch
 from config_utils import load_config
-from model_utils import load_model_and_tokenizer
+from peft import LoraConfig, get_peft_model  # Importing LoRA modules
 
 logging.basicConfig(level=logging.INFO)
 
@@ -53,7 +53,6 @@ def prepare_dataset(data_files: list, tokenizer, max_length: int):
     
     dataset = load_dataset("text", data_files={"train": data_files})
     tokenized_dataset = dataset.map(tokenize_function, batched=True)
-    tokenized_dataset = tokenized_dataset.rename_column("text", "labels")  # Rename to "labels" for training compatibility
     return tokenized_dataset
 
 def main() -> None:
@@ -78,10 +77,21 @@ def main() -> None:
 
     # Load model and tokenizer
     try:
-        tokenizer, model = load_model_and_tokenizer(config["model_name"])
+        tokenizer = AutoTokenizer.from_pretrained(config["model_name"])
+        model = AutoModelForCausalLM.from_pretrained(config["model_name"])
     except Exception as e:
         logging.error(f"Error loading model and tokenizer: {str(e)}")
         exit(1)
+
+    # Apply LoRA configuration
+    lora_config = LoraConfig(
+        r=8,  # Rank of the LoRA update matrices
+        lora_alpha=32,  # Scaling factor
+        target_modules=["q_proj", "v_proj"],  # Target specific modules in the transformer
+        lora_dropout=0.1,  # Dropout rate
+        bias="none",  # Bias handling in LoRA
+    )
+    model = get_peft_model(model, lora_config)
 
     # Set training device
     device = "cuda" if torch.cuda.is_available() and config.get("device", "gpu").lower() == "gpu" else "cpu"
