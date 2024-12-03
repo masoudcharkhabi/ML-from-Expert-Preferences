@@ -8,11 +8,6 @@ import torch
 from config_utils import load_config
 from model_utils import load_model_and_tokenizer
 
-# WandB imports for logging
-import wandb
-from transformers.integrations import WandbCallback
-
-# Setting up logging for output
 logging.basicConfig(level=logging.INFO)
 
 # Handle interrupt gracefully
@@ -76,15 +71,16 @@ def main() -> None:
     # Load configuration
     config = load_config(args.config)
 
-    # Initialize WandB
-    wandb.init(project="fine-tuning", name="fine-tune-experiment", mode="inline")
-
     # Ensure output directory exists
     output_dir = config.get("output_dir", "./output")
     ensure_directory_exists(output_dir, "Output")
 
     # Load model and tokenizer
-    tokenizer, model = load_model_and_tokenizer(config["model_name"])
+    try:
+        tokenizer, model = load_model_and_tokenizer(config["model_name"])
+    except Exception as e:
+        logging.error(f"Error loading model and tokenizer: {str(e)}")
+        exit(1)
 
     # Set training device
     device = "cuda" if torch.cuda.is_available() and config.get("device", "gpu").lower() == "gpu" else "cpu"
@@ -112,9 +108,7 @@ def main() -> None:
         save_steps=10,
         save_total_limit=2,
         logging_dir="./logs",
-        report_to="wandb",  # Report training metrics to WandB
-        logging_strategy="steps",
-        logging_steps=10,
+        report_to="none"  # Disable reporting to WandB by default
     )
 
     # Trainer
@@ -122,16 +116,16 @@ def main() -> None:
         model=model,
         args=training_args,
         train_dataset=tokenized_dataset["train"],
-        callbacks=[WandbCallback()],
     )
 
     # Fine-tune the model
     logging.info("Starting training...")
-    trainer.train()
+    try:
+        trainer.train()
+    except Exception as e:
+        logging.error(f"Error during training: {str(e)}")
+        exit(1)
     logging.info("Training complete.")
-
-    # Finish the WandB run
-    wandb.finish()
 
 if __name__ == "__main__":
     main()
