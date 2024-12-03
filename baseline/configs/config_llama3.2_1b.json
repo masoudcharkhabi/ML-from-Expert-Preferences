@@ -5,8 +5,8 @@
     "BBH_MAX_TOKEN_LENGTH": 500,
     "FLAN_MAX_NEW_TOKENS": 500,
     "MAX_EXAMPLES": 4,
-    "model_name": "meta-llama/Llama-3.2-1B-Instruct",
-    "num_iterations": 1,
+    "model_name": "meta-llama/Meta-Llama-3-8B",
+    "num_iterations": 2,
     "batch_size": 4,
     "device": "gpu"
 }
