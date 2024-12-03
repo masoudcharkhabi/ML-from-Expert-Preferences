@@ -76,7 +76,11 @@ def main() -> None:
     ensure_directory_exists(output_dir, "Output")
 
     # Load model and tokenizer
-    tokenizer, model = load_model_and_tokenizer(config["model_name"])
+    try:
+        tokenizer, model = load_model_and_tokenizer(config["model_name"])
+    except Exception as e:
+        logging.error(f"Error loading model and tokenizer: {str(e)}")
+        exit(1)
 
     # Set training device
     device = "cuda" if torch.cuda.is_available() and config.get("device", "gpu").lower() == "gpu" else "cpu"
@@ -104,6 +108,7 @@ def main() -> None:
         save_steps=10,
         save_total_limit=2,
         logging_dir="./logs",
+        report_to="none"  # Disable reporting to WandB by default
     )
 
     # Trainer
@@ -115,7 +120,11 @@ def main() -> None:
 
     # Fine-tune the model
     logging.info("Starting training...")
-    trainer.train()
+    try:
+        trainer.train()
+    except Exception as e:
+        logging.error(f"Error during training: {str(e)}")
+        exit(1)
     logging.info("Training complete.")
 
 if __name__ == "__main__":
