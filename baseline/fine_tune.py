@@ -79,6 +79,9 @@ def main() -> None:
     try:
         tokenizer = AutoTokenizer.from_pretrained(config["model_name"])
         model = AutoModelForCausalLM.from_pretrained(config["model_name"])
+        # Set padding token if not defined
+        if tokenizer.pad_token is None:
+            tokenizer.pad_token = tokenizer.eos_token
     except Exception as e:
         logging.error(f"Error loading model and tokenizer: {str(e)}")
         exit(1)
