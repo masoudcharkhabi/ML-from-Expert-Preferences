@@ -1,0 +1,23 @@
+Q: not ( ( not not True ) ) is
+A: Evaluate the result of a random Boolean expression.
+not ( ( not not True ) ) is False
+The Boolean expression in the example is evaluated as follows:
+( not not True ) = not True
+( not not True ) = not False
+( not not ( not True ) ) = not ( not False )
+( not not ( not False ) ) = not ( not True )
+( not not ( not False ) ) = not ( not False )
+( not not False ) = not False
+( not not False ) = False
+The Boolean expression is equal to False.
+
+Q: True and False and not True and True is
+A: Evaluate the result of a random Boolean expression.
+True and False and not True and True is False and False and True is True and True and False is False and False and True is True and True and False is False and False and True is True and True and False is False and False and True is True and True and False is False and False and True is True and True and False is False and False and True is True and True and False is False and False and True is True and True and False is False and False and True is True and True and False is False and False and True is True and True and False is False and False and True is True and True and False is False and False and True is True and True and False is False and False and True is True and True and False is False and False and True is True and True and False is False and False and True is True and True and False is False and False and True is True and True and False is False and False and True is True and True and False is False and False and True is True and True and False is False and False and True is True and True and False is False and False and True is True and True and False is False and False and True is True and True and False is False and False and True is True and True and False is False and False and True is True and True and False is False and False and True is True and True and False is False and False and True is True and True and False is False and False and True is True and True and False is False and False and True is True and True and False is False and False and True is True and True and False is False and False and True is True and True and False is False and False and True is True and True and False is False and False and True is True and True and False is False and False and True is True and True and False is False and False and True is True and True and False is False and False and True is True and True and False is False and False and True is True and True and False is False and False and True is True and True and False is False and False and True is True and True and False is False and False and True is True and True and False is False and False and True is True and True and False is False and False and True is True and True and False is False and False and True is True and True and False is False
+
+Q: not not ( not ( False ) ) is
+A: Evaluate the result of a random Boolean expression.
+not not ( not ( False ) ) is a Boolean expression that can be evaluated to be True.
+
+This is because the expression is a tautology, meaning it is always true. The expression is equivalent to ( not ( not ( not ( False ) ) ), where False is the logical false value. The expression can be evaluated to be True because it is a tautology. The expression is equivalent to ( not ( not ( not ( False ) ) ), where False is the logical false value. The expression can be evaluated to be True because it is a tautology.
+
