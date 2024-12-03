@@ -8,9 +8,6 @@ import torch
 from config_utils import load_config
 from peft import LoraConfig, get_peft_model  # Importing LoRA modules
 
-# Set transformers verbosity to error
-os.environ['TRANSFORMERS_VERBOSITY'] = 'error'
-
 logging.basicConfig(level=logging.INFO)
 
 # Handle interrupt gracefully
@@ -129,6 +126,7 @@ def main() -> None:
         logging_strategy="steps",
         logging_steps=10,
         evaluation_strategy="no",  # Disable evaluation during training by default
+        dataloader_num_workers=2,  # Limit number of workers to avoid excessive memory usage
     )
 
     # Trainer
@@ -141,8 +139,12 @@ def main() -> None:
     # Fine-tune the model
     logging.info("Starting training...")
     try:
+        torch.cuda.empty_cache()  # Clear GPU cache to avoid OOM error
         trainer.train()
         trainer.save_model(output_dir)  # Save the fine-tuned model
+    except torch.cuda.OutOfMemoryError:
+        logging.error("CUDA out of memory. Try reducing the batch size or using a smaller model.")
+        exit(1)
     except Exception as e:
         logging.error(f"Error during training: {str(e)}")
         exit(1)
