@@ -8,6 +8,9 @@ import torch
 from config_utils import load_config
 from peft import LoraConfig, get_peft_model  # Importing LoRA modules
 
+# Set transformers verbosity to error
+os.environ['TRANSFORMERS_VERBOSITY'] = 'error'
+
 logging.basicConfig(level=logging.INFO)
 
 # Handle interrupt gracefully
