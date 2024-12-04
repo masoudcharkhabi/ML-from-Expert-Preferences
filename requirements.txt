@@ -11,7 +11,5 @@ wandb
 evaluate
 torch
 numpy
-ray
-os
-google.colab
+# ray
 torch
