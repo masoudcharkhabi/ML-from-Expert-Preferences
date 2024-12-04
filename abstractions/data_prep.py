@@ -43,7 +43,7 @@ class DataPreparation:
         eval_dataset = self.dataset["validation"].map(self.preprocess) if "validation" in self.dataset else None
         eval_dataset = eval_dataset.map(lambda x: self.tokenize_function(x, tokenizer), batched=True) if eval_dataset else None
         # Return only train_dataset instead of a tuple
-        return train_dataset 
+        return train_dataset
 
     def dataset_info(self):
         """Print information about the dataset, such as the size"""
@@ -51,4 +51,4 @@ class DataPreparation:
             for split in self.dataset.keys():
                 print(f"Split: {split}, Number of examples: {len(self.dataset[split])}")
         else:
-            print("Dataset is not loaded. Please call load_data() first.")        
+            print("Dataset is not loaded. Please call load_data() first.")
