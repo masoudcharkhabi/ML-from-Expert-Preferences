@@ -4,13 +4,15 @@ import pyarrow as pa
 import pyarrow.parquet as pq
 from datasets import load_dataset, Dataset
 from transformers import AutoModelForCausalLM, AutoTokenizer
+import logging
+from transformers import logging as transformers_logging
 import torch
 import wandb
 import datetime
 from evaluate import load
 
 class MMLUMixedDatasetLoader:
-    def __init__(self, loaded_config, n_examples=100, subject_config='all'):
+    def __init__(self, loaded_config, n_examples, subject_config='all'):
         """
         Initialize the MMLU mixed dataset loader.
 
@@ -80,7 +82,6 @@ class MMLUMixedDatasetLoader:
         pq.write_table(arrow_table, output_path)
         print(f"Dataset saved to {output_path}")
 
-# TODO: adjust code to use the model server and the hf_full_model_name
 class ModelEvaluator:
     def __init__(self, model_name: str, tokenizer, sample_size, max_length, loaded_config):
         self.model_name = model_name
@@ -91,7 +92,7 @@ class ModelEvaluator:
         self.accuracy_metric = load("accuracy")
         self.experiment_id = loaded_config['experiment_id']
         self.model = AutoModelForCausalLM.from_pretrained(model_name)
-        
+
         # Assign the pad_token to eos_token to avoid the padding warning
         if self.tokenizer.pad_token is None:
             self.tokenizer.pad_token = self.tokenizer.eos_token
@@ -99,8 +100,13 @@ class ModelEvaluator:
         # Set pad_token_id to eos_token_id explicitly in the model configuration
         self.model.config.pad_token_id = self.tokenizer.pad_token_id
 
-        # Initialize Weights & Biases
-        wandb.init(project="active-llm", name=f"eval_{self.experiment_id}", resume="allow")
+        # Initialize Weights & Biases with increased timeout
+        wandb.init(
+            project="active-llm", 
+            name=f"eval_{self.experiment_id}", 
+            resume="allow",
+            settings=wandb.Settings(init_timeout=240)  # Increase timeout to 120 seconds
+        )
 
     def evaluate(self, dataset, batch_size=8, debug=False):
         """Evaluate model performance on a subset of the dataset using batches"""
@@ -187,11 +193,13 @@ class ModelEvaluator:
             "accuracy": accuracy,
             "rouge": rouge_score,
             "perplexity": perplexity.item(),
+            "eval_examples": len(dataset)
         })
         wandb.finish()
 
         return {
             "accuracy": accuracy,
             "rouge": rouge_score,
-            "perplexity": perplexity.item()
+            "perplexity": perplexity.item(),
+            "eval_examples": len(dataset)
         }
