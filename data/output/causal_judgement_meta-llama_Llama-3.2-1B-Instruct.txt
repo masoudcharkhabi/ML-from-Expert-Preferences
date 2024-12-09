@@ -1,0 +1,81 @@
+Q: How would a typical person answer each of the following questions about causation?
+Frank T., had an ongoing dispute with his neighbor over a stretch of land and one day decided to shoot his neighbor in the body. Frank T. had no experience with guns, his hand slipped on the barrel of the gun, and the shot went wild. Nonetheless, the bullet bounced off a large boulder several feet away and hit the neighbor's body, causing significant injury. Did Frank T. intentionally shoot his neighbor in the body?
+Options:
+- Yes
+- No
+A: Answer questions about causal attribution.
+How would a typical person answer each of the following questions about causation?
+Frank T., had an ongoing dispute with his neighbor over a stretch of land and one day decided to shoot his neighbor in the body. Frank T. had no experience with guns, his hand slipped on the barrel of the gun, and the shot went wild. Nonetheless, the bullet bounced off a large boulder several feet away and hit the neighbor's body, causing significant injury. Did Frank T. intentionally shoot his neighbor in the body?
+Options:
+- Yes
+- No
+- Undecided
+- Not applicable
+- Other (please specify)
+Note that the person is trying to determine whether Frank T. acted with intent to cause the injury.
+**Solution:** Yes. The person believes that Frank T. intended to shoot his neighbor in the body and that his actions were the result of his intent.
+* **Answering questions about attribution**: Attribution is the process of explaining the causes of an event or behavior. In the case of causal attribution, the person is trying to determine whether Frank T. acted with the intention to cause the injury.
+* **Causal attribution**: Causal attribution is the process of explaining the causes of an event or behavior. In the case of causal attribution, the person is trying to determine whether Frank T. acted with the intention to cause the injury.
+* **Causal attribution**: Causal attribution is the process of explaining the causes of an event or behavior. In the case of causal attribution, the person is trying to determine whether Frank T. acted with the intention to cause the injury.
+* **Causal attribution**: Causal attribution is the process of explaining the causes of an event or behavior. In the case of causal attribution, the person is trying to determine whether Frank T. acted with the intention to cause the injury.
+* **Causal attribution**: Causal attribution is the process of explaining the causes of an event or behavior. In the case of causal attribution, the person is trying to determine whether Frank T. acted with the intention to cause the injury.
+* **Causal attribution**: Causal attribution is the process of explaining the causes of an event or behavior. In the case of causal attribution, the person is trying to determine whether Frank T. acted with the intention to cause the injury.
+* **Causal attribution**: Causal attribution is the process of explaining the causes of an event or behavior. In the case of causal attribution,
+
+Q: How would a typical person answer each of the following questions about causation?
+Suzy and Billy are working on a project that is very important for our nation's security. The boss tells them both: "Be sure that you are here at exactly 9 am. It is absolutely essential that you arrive at that time." Both Billy and Suzy arrive at 9 am. As it happens, there was a motion detector installed in the room where they arrived. The motion detector was set up to be triggered if at least one person appeared in the room at the same time. So the motion detector went off. Did Billy cause the motion detector to go off?
+Options:
+- Yes
+- No
+A: Answer questions about causal attribution.
+How would a typical person answer each of the following questions about causation?
+Suzy and Billy are working on a project that is very important for our nation's security. The boss tells them both: "Be sure that you are here at exactly 9 am. It is absolutely essential that you arrive at that time." Both Billy and Suzy arrive at 9 am. As it happens, there was a motion detector installed in the room where they arrived. The motion detector was set up to be triggered if at least one person appeared in the room at the same time. So the motion detector went off. Did Billy cause the motion detector to go off?
+Options:
+- Yes
+- No
+- Undetermined
+- Not relevant
+This question is a good example of a causal attribution question. The question is asking the person to consider whether Billy's actions (arriving at 9 am) caused the motion detector to go off. However, the question is not asking about causation in the sense of a direct cause-and-effect relationship. Rather, it is asking about the probability of Billy causing the motion detector to go off. The motion detector was already triggered by the fact that both Billy and Suzy arrived at 9 am, so the probability of Billy causing the motion detector to go off is zero.
+- A similar question might be: "What is the probability that Billy will arrive at 9 am?" This question is more like a causal attribution question because it is asking about the probability of a specific outcome (arriving at 9 am) given a specific set of circumstances (Billy and Suzy arriving at the same time). In contrast, the previous question is asking about causation in a more general sense.
+- A causal attribution question is one that is asking about the probability of a specific outcome given a set of circumstances. The question is asking about the probability of Billy causing the motion detector to go off, given that both Billy and Suzy arrived at 9 am. This is a causal attribution question because it is asking about the probability of a specific outcome (Billy causing the motion detector to go off) given a set of circumstances (both Billy and Suzy arriving at 9 am). In contrast, the previous question is asking about causation in a more general sense.
+- A causal attribution question is one that is asking about the probability of a specific outcome given a set of circumstances. The question is asking about the probability of Billy causing
+
+Q: How would a typical person answer each of the following questions about causation?
+George and his sister Lena reunite at their parents' house for Thanksgiving. Whereas George just got into medical school, Lena is unhappy in her marriage and recently lost her job. Over the course of the day, George and Lena get into a number of heated arguments. Later in the afternoon they play a game of darts. They split the first two games, and the third game is close until the end. Who will win comes down to George's last shot. If he hits a high point region, he wins; if he hits a low point region, Lena wins. George thinks of the difficult time Lena is having, and he really wants to let her win. He aims the dart at the low point region. He sets up his shot and the dart lands in the low point region. After his shot, Lena wins the game and is very happy. Did George hit the low point region intentionally?
+Options:
+- Yes
+- No
+A: Answer questions about causal attribution.
+How would a typical person answer each of the following questions about causation?
+George and his sister Lena reunite at their parents' house for Thanksgiving. Whereas George just got into medical school, Lena is unhappy in her marriage and recently lost her job. Over the course of the day, George and Lena get into a number of heated arguments. Later in the afternoon they play a game of darts. They split the first two games, and the third game is close until the end. Who will win comes down to George's last shot. If he hits a high point region, he wins; if he hits a low point region, Lena wins. George thinks of the difficult time Lena is having, and he really wants to let her win. He aims the dart at the low point region. He sets up his shot and the dart lands in the low point region. After his shot, Lena wins the game and is very happy. Did George hit the low point region intentionally?
+Options:
+- Yes
+- No
+- Maybe
+- I don't know
+- I don't understand
+- I'm not sure
+- I'm not going to answer
+- I'm not going to think about this for a minute
+- I'm going to go get a drink
+- I'm going to go to bed
+- I'm going to do some math
+- I'm going to ask my parents
+- I'm going to go to the store
+- I'm going to call my best friend
+- I'm going to write a letter to my mom
+
+## Step 1: Understand the question
+The question asks how a typical person would answer a question about whether George intentionally hit the low point region of the dartboard to win the game.
+
+## Step 2: Consider George's motivations
+George thinks of the difficult time Lena is having, and he really wants to let her win. This suggests that he is trying to alleviate her negative emotions.
+
+## Step 3: Analyze George's actions
+George aims the dart at the low point region and hits it. This action is likely intended to help Lena, rather than to gain an advantage for himself.
+
+## Step 4: Determine the correct answer
+Based on the analysis, the correct answer is that George did not hit the low point region intentionally. His actions were motivated by a desire to help Lena, rather than to gain an advantage for himself.
+
+The final answer is: $\boxed
+
