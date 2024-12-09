@@ -2,13 +2,26 @@
 
 ## Proposal
 
-### Goal
-
 Background: Active learning boosts model performance by selectively annotating data but suffers from high computational costs, particularly for Large Language Models (LLMs).
 
-Objective: Building on[Bhatt et al. (2024)](https://arxiv.org/abs/2401.06692v3), analyze how varying retraining iterations impacts performance and data selection under a fixed annotation budget.
+Objective: Building on [Bhatt et al. (2024)](https://arxiv.org/abs/2401.06692v3), analyze how varying retraining iterations impacts performance and data selection under a fixed annotation budget in LLMs.
 
 Main Hypothesis: Increasing retraining iterations improves data quality.
+
+Methods:
+
+LLMs: Llama 3.2 1B-Instruct; evaluated with 50K annotation budgets
+
+Treatment Variables: Acquisition strategies (random, entropy, or confidence) and retraining iterations (1 or 2). Additional variations are discussed in the paper.
+
+Random Strategy: Select data points randomly for annotation.
+
+Entropy Strategy: Select data with the highest token prediction entropy.
+
+Confidence Strategy: Select data with the lowest token prediction probabilities.
+
+Retraining Iterations: For $m$ iterations, acquire 50K/$m$ examples per iteration using the specified strategy, retrain the model, and repeat $m$ times.
+
 
 ## Steps to run experiments
 
