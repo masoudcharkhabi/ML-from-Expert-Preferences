@@ -1,13 +1,33 @@
 # ML-from-Expert-Preferences
 
-## Proposal
+## Problem statement
 
-### Goal
-Active learning seeks to optimize the selection of data points for annotation, improving model performance efficiently while minimizing the need for large labeled datasets. However, two significant challenges hinder its application: the cost of annotation and the computational burden of iteratively selecting data points and retraining the model. To address these issues, [Bhatt et al. (2024)](https://arxiv.org/abs/2401.06692v3) propose "experimental design," which involves selecting all examples for annotation based on an initial model and performing a single round of fine-tuning. While this approach reduces computational overhead, their work does not fully explore the trade-off between performance and computational costs, nor does it directly compare experimental design with traditional active learning.
+Background: Active learning boosts model performance by selectively annotating data but suffers from high computational costs, particularly for Large Language Models (LLMs).
 
-This project builds upon [Bhatt et al. (2024)](https://arxiv.org/abs/2401.06692v3) by investigating how performance and the selection of data points for annotation evolve as we vary the number of retraining iterations while keeping the annotation budget fixed. We hypothesize that additional retraining increases the diversity of annotated examples, which, in turn, improves active learning performance.
+Objective: Building on [Bhatt et al. (2024)](https://arxiv.org/abs/2401.06692v3), analyze how varying retraining iterations impacts performance and data selection under a fixed annotation budget in LLMs.
+
+Main Hypothesis: Increasing retraining iterations improves data quality.
+
+## Methods
+
+LLMs: Llama 3.2 1B-Instruct; evaluated with 50K annotation budgets
+
+Treatment Variables: Acquisition strategies (random, entropy, or confidence) and retraining iterations (1 or 2). Additional variations are discussed in the paper.
+
+Random Strategy: Select data points randomly for annotation.
+
+Entropy Strategy: Select data with the highest token prediction entropy.
+
+Confidence Strategy: Select data with the lowest token prediction probabilities.
+
+Retraining Iterations: For $m$ iterations, acquire 50K/$m$ examples per iteration using the specified strategy, retrain the model, and repeat $m$ times.
+
 
 ## Steps to run experiments
+
+The full experiments were run on Google Colab with an A100 GPU on pay-as-you-go credits. Please refer Huggingface [coderGenMC](https://huggingface.co/coderGenMC) and [rnjs199](https://huggingface.co/rnjs199) for all model and dataset artifacts and Weights and Biases [mcharkhabi](https://wandb.ai/ai-eval/active-llm?nw=nwusermcharkhabi) or [kwonosubai](https://wandb.ai/ai-eval/active-llm/table?nw=nwuserkwonosubai) for all experiments. The config files for experiments are written to Weights and Biases. The artifacts will be public for 30 days. 
+
+To run the baseline set up on CPU only follow the below instructions. 
 
 1) Install miniconda from https://docs.anaconda.com/free/miniconda/
 
