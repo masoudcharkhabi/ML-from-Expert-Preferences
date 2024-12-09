@@ -3,9 +3,10 @@
 ## Proposal
 
 ### Goal
-Active learning seeks to optimize the selection of data points for annotation, improving model performance efficiently while minimizing the need for large labeled datasets. However, two significant challenges hinder its application: the cost of annotation and the computational burden of iteratively selecting data points and retraining the model. To address these issues, [Bhatt et al. (2024)](https://arxiv.org/abs/2401.06692v3) propose "experimental design," which involves selecting all examples for annotation based on an initial model and performing a single round of fine-tuning. While this approach reduces computational overhead, their work does not fully explore the trade-off between performance and computational costs, nor does it directly compare experimental design with traditional active learning.
 
-This project builds upon [Bhatt et al. (2024)](https://arxiv.org/abs/2401.06692v3) by investigating how performance and the selection of data points for annotation evolve as we vary the number of retraining iterations while keeping the annotation budget fixed. We hypothesize that additional retraining increases the diversity of annotated examples, which, in turn, improves active learning performance.
+Background: Active learning boosts model performance by selectively annotating data but suffers from high computational costs, particularly for Large Language Models (LLMs).
+Objective: Building on[Bhatt et al. (2024)](https://arxiv.org/abs/2401.06692v3), analyze how varying retraining iterations impacts performance and data selection under a fixed annotation budget.
+Main Hypothesis: Increasing retraining iterations improves data quality.
 
 ## Steps to run experiments
 
