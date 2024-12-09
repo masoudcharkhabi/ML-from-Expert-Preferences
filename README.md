@@ -23,9 +23,9 @@ Confidence Strategy: Select data with the lowest token prediction probabilities.
 Retraining Iterations: For $m$ iterations, acquire 50K/$m$ examples per iteration using the specified strategy, retrain the model, and repeat $m$ times.
 
 
-## Steps to run experiments
+## Steps to run experiments and view results
 
-The full experiments were run on Google Colab with an A100 GPU on pay-as-you-go credits. Please refer Huggingface [coderGenMC](https://huggingface.co/coderGenMC) and [rnjs1992](https://huggingface.co/rnjs1992) for all model and dataset artifacts and Weights and Biases [mcharkhabi](https://wandb.ai/ai-eval/active-llm?nw=nwusermcharkhabi) or [kwonosubai](https://wandb.ai/ai-eval/active-llm/table?nw=nwuserkwonosubai) for all experiments. The config files for experiments are written to Weights and Biases. The artifacts will be public for 30 days. 
+The full experiments were run on Google Colab with an A100 GPU on pay-as-you-go credits. Please refer Huggingface [coderGenMC](https://huggingface.co/coderGenMC) and [rnjs1992](https://huggingface.co/rnjs1992) for all model and dataset artifacts and Weights and Biases [mcharkhabi](https://wandb.ai/ai-eval/active-llm?nw=nwusermcharkhabi) or [kwonosubai](https://wandb.ai/ai-eval/active-llm/table?nw=nwuserkwonosubai) for all experiments. The config files for experiments are written to Weights and Biases. Each experiment has a timestamp experiment ID that can be used to connect models, datasets and experiments. The artifacts will be public for 30 days. 
 
 To run the baseline set up on CPU only follow the below instructions. 
 
