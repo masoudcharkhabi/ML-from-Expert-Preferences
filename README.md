@@ -5,7 +5,9 @@
 ### Goal
 
 Background: Active learning boosts model performance by selectively annotating data but suffers from high computational costs, particularly for Large Language Models (LLMs).
+
 Objective: Building on[Bhatt et al. (2024)](https://arxiv.org/abs/2401.06692v3), analyze how varying retraining iterations impacts performance and data selection under a fixed annotation budget.
+
 Main Hypothesis: Increasing retraining iterations improves data quality.
 
 ## Steps to run experiments
