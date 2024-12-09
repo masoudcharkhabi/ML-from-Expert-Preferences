@@ -1,6 +1,6 @@
 # ML-from-Expert-Preferences
 
-## Proposal
+## Problem statement
 
 Background: Active learning boosts model performance by selectively annotating data but suffers from high computational costs, particularly for Large Language Models (LLMs).
 
@@ -8,7 +8,7 @@ Objective: Building on [Bhatt et al. (2024)](https://arxiv.org/abs/2401.06692v3)
 
 Main Hypothesis: Increasing retraining iterations improves data quality.
 
-Methods:
+## Methods
 
 LLMs: Llama 3.2 1B-Instruct; evaluated with 50K annotation budgets
 
