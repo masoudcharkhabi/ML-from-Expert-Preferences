@@ -9,7 +9,7 @@ This project builds upon [Bhatt et al. (2024)](https://arxiv.org/abs/2401.06692v
 
 ## Steps to run experiments
 
-The full experiments were run on Google Colab with an A100 GPU on pay-as-you-go credits. Please refer Huggingface [coderGenMC][https://huggingface.co/coderGenMC]) for all model and dataset artifacts and Weights and Biases [mcharkhabi][https://wandb.ai/ai-eval/active-llm?nw=nwusermcharkhabi] for all experpiments. The config files for experiments are written to Weights and Biases. The artifacts will be public for 30 days. 
+The full experiments were run on Google Colab with an A100 GPU on pay-as-you-go credits. Please refer Huggingface [coderGenMC](https://huggingface.co/coderGenMC) and [rnjs199](https://huggingface.co/rnjs199) for all model and dataset artifacts and Weights and Biases [mcharkhabi](https://wandb.ai/ai-eval/active-llm?nw=nwusermcharkhabi) or [kwonosubai](https://wandb.ai/ai-eval/active-llm/table?nw=nwuserkwonosubai) for all experiments. The config files for experiments are written to Weights and Biases. The artifacts will be public for 30 days. 
 
 To run the baseline set up on CPU only follow the below instructions. 
 
