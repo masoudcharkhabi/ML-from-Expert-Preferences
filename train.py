@@ -18,8 +18,8 @@ class ModelTrainer:
         self.output_dir = f"./models/fine_tuned_model_{self.experiment_id}"
         # Initialize WandB with config
         wandb.init(
-            project="active-llm", 
-            name=f"fine_tune_{self.experiment_id}", 
+            project="active-llm",
+            name=f"fine_tune_{self.experiment_id}",
             config=loaded_config,  # Add experiment config as metadata
             resume="allow"
         )
@@ -39,11 +39,12 @@ class ModelTrainer:
         # Training arguments without DeepSpeed and offloading
         training_args = TrainingArguments(
             output_dir=self.output_dir,
-            evaluation_strategy="epoch" if eval_dataset is not None else "no",
+            # evaluation_strategy="epoch" if eval_dataset is not None else "no",
+            evaluation_strategy="no",
             learning_rate=2e-5,
             per_device_train_batch_size=1,  # Reduce batch size to avoid memory issues
             per_device_eval_batch_size=1,
-            gradient_accumulation_steps=4,  # Reduce gradient accumulation to lower memory needs
+            gradient_accumulation_steps=1,  # Reduce gradient accumulation to lower memory needs
             optim="adamw_torch",
             lr_scheduler_type="linear",
             warmup_ratio=0.03,
@@ -51,13 +52,13 @@ class ModelTrainer:
             weight_decay=0,
             report_to=["wandb"],
             run_name="model_training",
-            fp16=False,  # Disable mixed precision to avoid potential issues
-            gradient_checkpointing=False,  # Disable gradient checkpointing to prevent increased memory usage during backpropagation
+            fp16=True,
+            gradient_checkpointing=True,
             seed=42,
             logging_steps=250,      # Log metrics to wandb every n steps
             save_strategy="steps",
             save_steps=10000,      # Save a checkpoint every m steps
-            save_total_limit=2     # Keep only the x most recent checkpoints
+            save_total_limit=1     # Keep only the x most recent checkpoints
         )
 
         # Use DataCollatorForLanguageModeling for data handling
@@ -67,7 +68,7 @@ class ModelTrainer:
             model=self.model,
             args=training_args,
             train_dataset=train_dataset,
-            eval_dataset=eval_dataset,
+            # eval_dataset=eval_dataset,
             data_collator=data_collator
         )
 
@@ -82,7 +83,7 @@ class ModelTrainer:
                     self.trainer.save_model(self.output_dir)
                     # Manually add model_type to config
                     self.model.config.model_type = "llama"
-                    self.model.config.save_pretrained(self.output_dir)                    
+                    self.model.config.save_pretrained(self.output_dir)
                     print(f"Model saved to: {self.output_dir}")
             except RuntimeError as e:
                 print("RuntimeError occurred:", e)
