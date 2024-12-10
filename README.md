@@ -27,7 +27,7 @@ Retraining Iterations: For $m$ iterations, acquire 50K/$m$ examples per iteratio
 
 The full experiments were run on Google Colab with an A100 GPU on pay-as-you-go credits. Please refer Huggingface [coderGenMC](https://huggingface.co/coderGenMC) and [rnjs1992](https://huggingface.co/rnjs1992) for all model and dataset artifacts and Weights and Biases [mcharkhabi](https://wandb.ai/ai-eval/active-llm?nw=nwusermcharkhabi) or [kwonosubai](https://wandb.ai/ai-eval/active-llm/table?nw=nwuserkwonosubai) for all experiments. The config files for experiments are written to Weights and Biases. Each experiment has a timestamp experiment ID that can be used to connect models, datasets and experiments. The artifacts will be public for 30 days. 
 
-To run the baseline set up on CPU only follow the below instructions. 
+The baseline was built on Gemma and Llamma models with Big-Bench-Hard and Flan V2 datasets. Due to performance and memory management issues we transitioned to abstract implementations on GCP via Colab. To run the baseline set up on CPU only follow the below instructions. 
 
 1) Install miniconda from https://docs.anaconda.com/free/miniconda/
 
@@ -41,7 +41,6 @@ If you run into issues with installing ray and torch, use the official pytorch C
 conda activate cs329h-project
 conda install pytorch torchvision torchaudio -c pytorch
 pip3 install ray
-
 ```
 
 After installing PyTorch, install the remaining dependencies from your requirements.txt (This will install transformers and huggingface_hub):
