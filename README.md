@@ -20,7 +20,7 @@ Entropy Strategy: Select data with the highest token prediction entropy.
 
 Confidence Strategy: Select data with the lowest token prediction probabilities.
 
-Retraining Iterations: For $m$ iterations, acquire 50K/$m$ examples per iteration using the specified strategy, retrain the model, and repeat $m$ times.
+Retraining Iterations: For $m$ iterations, acquire 50K m examples per iteration using the specified strategy, retrain the model, and repeat m times.
 
 
 ## Steps to run experiments and view results
