@@ -33,12 +33,12 @@ The baseline was built on Gemma and Llamma models with Big-Bench-Hard and Flan V
 
 2) Create a conda environment for the experiments
 ```
-conda create --name cs329h-project --file requirements.txt python=3.9 -c conda-forge
+conda create --name MLE-project --file requirements.txt python=3.9 -c conda-forge
 ```
 
 If you run into issues with installing ray and torch, use the official pytorch Conda channel or install manually after creating the env:
 ```
-conda activate cs329h-project
+conda activate MLE-project
 conda install pytorch torchvision torchaudio -c pytorch
 pip3 install ray
 ```
@@ -50,7 +50,7 @@ pip3 install -r requirements.txt
 
 3) Activate the conda package and environment manager:
 ```
-conda activate cs329h-project
+conda activate MLE-project
 ```
 
 4) Run inference.py with a selected model and chain-of-thought data prompt flag. The results will be written to a file with the matching prefix and _model_name postfix.
