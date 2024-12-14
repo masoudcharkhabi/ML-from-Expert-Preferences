@@ -8,13 +8,13 @@
 
 2) Create a conda environment for the experiments
 ```
-conda create --name cs329h-project --file requirements.txt python=3.9
+conda create --name mle-project --file requirements.txt python=3.9
 ```
 
 Use the official pytorch Conda channel to install torch:
 
 ```
-conda create --name cs329h-project python=3.9
+conda create --name mle-project python=3.9
 conda activate cs329h-project
 ```
 
@@ -30,7 +30,7 @@ pip3 install -r requirements.txt
 
 3) Activate the conda package and environment manager:
 ```
-conda activate cs329h-project
+conda activate mle-project
 ```
 
 4) Run the basic input and output script baseline/gemma_base.py
