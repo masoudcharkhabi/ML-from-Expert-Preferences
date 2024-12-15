@@ -6,18 +6,28 @@ from transformers import AutoModelForCausalLM, AutoTokenizer, Trainer, TrainingA
 from datasets import load_dataset
 import torch
 from config_utils import load_config
-from model_utils import load_model_and_tokenizer
+from peft import LoraConfig, get_peft_model  # Importing LoRA modules
+
+# Set transformers verbosity to error
+os.environ['TRANSFORMERS_VERBOSITY'] = 'error'
 
 logging.basicConfig(level=logging.INFO)
 
 # Handle interrupt gracefully
-def handle_interrupt(signal, frame):
+def handle_interrupt(signal: int, frame) -> None:
+    """
+    Handle keyboard interrupt (CTRL+C) gracefully.
+
+    Args:
+        signal (int): Signal number.
+        frame: Current stack frame.
+    """
     logging.warning("Interrupt received! Shutting down gracefully...")
     exit(0)
 
 signal.signal(signal.SIGINT, handle_interrupt)
 
-def ensure_directory_exists(directory: str, description: str):
+def ensure_directory_exists(directory: str, description: str) -> None:
     """
     Ensure that a required directory exists.
 
@@ -29,8 +39,18 @@ def ensure_directory_exists(directory: str, description: str):
         logging.error(f"{description} directory {directory} does not exist.")
         exit(1)
 
-def prepare_dataset(data_files, tokenizer, max_length):
-    """Prepare dataset from given files."""
+def prepare_dataset(data_files: list, tokenizer, max_length: int):
+    """
+    Prepare dataset from given files by tokenizing the text.
+
+    Args:
+        data_files (list): List of file paths to prepare the dataset from.
+        tokenizer: Tokenizer instance to tokenize the dataset.
+        max_length (int): Maximum length for tokenized sequences.
+
+    Returns:
+        Dataset: Tokenized dataset.
+    """
     def tokenize_function(examples):
         return tokenizer(examples["text"], padding="max_length", truncation=True, max_length=max_length)
     
@@ -38,7 +58,10 @@ def prepare_dataset(data_files, tokenizer, max_length):
     tokenized_dataset = dataset.map(tokenize_function, batched=True)
     return tokenized_dataset
 
-def main():
+def main() -> None:
+    """
+    Main function to fine-tune a language model using specified parameters from a configuration file.
+    """
     parser = argparse.ArgumentParser(description="Fine-tune a language model using specified parameters.")
     parser.add_argument(
         "--config",
@@ -53,10 +76,28 @@ def main():
 
     # Ensure output directory exists
     output_dir = config.get("output_dir", "./output")
-    ensure_directory_exists(output_dir, "Output")
+    os.makedirs(output_dir, exist_ok=True)
 
     # Load model and tokenizer
-    tokenizer, model = load_model_and_tokenizer(config["model_name"])
+    try:
+        tokenizer = AutoTokenizer.from_pretrained(config["model_name"])
+        model = AutoModelForCausalLM.from_pretrained(config["model_name"])
+        # Set padding token if not defined
+        if tokenizer.pad_token is None:
+            tokenizer.pad_token = tokenizer.eos_token
+    except Exception as e:
+        logging.error(f"Error loading model and tokenizer: {str(e)}")
+        exit(1)
+
+    # Apply LoRA configuration
+    lora_config = LoraConfig(
+        r=8,  # Rank of the LoRA update matrices
+        lora_alpha=32,  # Scaling factor
+        target_modules=["q_proj", "v_proj"],  # Target specific modules in the transformer
+        lora_dropout=0.1,  # Dropout rate
+        bias="none",  # Bias handling in LoRA
+    )
+    model = get_peft_model(model, lora_config)
 
     # Set training device
     device = "cuda" if torch.cuda.is_available() and config.get("device", "gpu").lower() == "gpu" else "cpu"
@@ -84,6 +125,11 @@ def main():
         save_steps=10,
         save_total_limit=2,
         logging_dir="./logs",
+        report_to="none",  # Disable reporting to WandB by default
+        logging_strategy="steps",
+        logging_steps=10,
+        evaluation_strategy="no",  # Disable evaluation during training by default
+        dataloader_num_workers=2,  # Limit number of workers to avoid excessive memory usage
     )
 
     # Trainer
@@ -95,8 +141,17 @@ def main():
 
     # Fine-tune the model
     logging.info("Starting training...")
-    trainer.train()
-    logging.info("Training complete.")
+    try:
+        torch.cuda.empty_cache()  # Clear GPU cache to avoid OOM error
+        trainer.train()
+        trainer.save_model(output_dir)  # Save the fine-tuned model
+    except torch.cuda.OutOfMemoryError:
+        logging.error("CUDA out of memory. Try reducing the batch size or using a smaller model.")
+        exit(1)
+    except Exception as e:
+        logging.error(f"Error during training: {str(e)}")
+        exit(1)
+    logging.info("Training complete. Model saved to output directory.")
 
 if __name__ == "__main__":
     main()
