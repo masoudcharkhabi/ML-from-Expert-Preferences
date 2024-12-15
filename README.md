@@ -68,7 +68,7 @@ python3 eval_metrics.py --output_dir data/output --ground_truth_dirs data/BIG-Be
 pytest test_eval.py
 ```
 
-7) For a compatible implementation with Google Colab use the colab branch
+7) For a compatible implementation on GCP with Huggingface artifacts and WandB experiment logging use the abstractions branch
 ```
-git checkout -b colab
+git checkout -b abstractions
 ```
